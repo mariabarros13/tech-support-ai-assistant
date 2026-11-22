@@ -1,0 +1,3 @@
+# Normaliza quebras de linha: arquivos de texto são armazenados com LF no repositório
+# e convertidos para o padrão do sistema no checkout.
+* text=auto
