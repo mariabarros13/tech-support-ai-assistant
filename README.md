@@ -179,6 +179,10 @@ Para abrir a interface web visual:
 ```bash
 streamlit run web/app.py
 ```
+No Windows, se o comando `streamlit` não for reconhecido (pasta de scripts do Python fora do `PATH`), use:
+```bash
+python -m streamlit run web/app.py
+```
 A interface será aberta em `http://localhost:8501`. A caixa **Modo Mock** vem marcada por padrão; desmarque-a para usar o Gemini real (requer `GEMINI_API_KEY`). A interface oferece:
 - Seleção visual de personas e inspeção de restrições.
 - Abas com os 4 conteúdos formatados e **renderização gráfica de diagramas Mermaid**.
