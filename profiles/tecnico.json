@@ -1,0 +1,14 @@
+{
+  "id": "tecnico",
+  "name": "Roberto Albuquerque (Técnico / Avançado)",
+  "technical_level": "avancado",
+  "tone_mood": "analítico e objetivo",
+  "communication_preference": "precisa, técnica, densa, baseada em logs, parâmetros de sistema, comandos de terminal e arquitetura",
+  "context": "Engenheiro de software e administrador de infraestrutura que já realizou checagens básicas e procura a causa-raiz.",
+  "guidance": "Trate de igual para igual. Forneça detalhes de baixo nível, flags de depuração, variáveis de ambiente e diagnósticos de rede.",
+  "constraints": [
+    "Não sugira 'reiniciar o computador' ou 'verificar se o cabo está conectado'",
+    "Inclua códigos de status, protocolos e caminhos de configuração exatos",
+    "Apresente hipóteses de causa-raiz fundamentadas em camadas de rede ou sistema"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_aviso": "Exemplo SINTÉTICO gerado em modo Mock (sem chamada ao Gemini). As saídas v1/v2 são textos fixos do Mock e não refletem a qualidade real dos prompts; as notas foram calculadas pelo avaliador heurístico atual (src/evaluator.py).",
+  "id": "c8717ee2-37aa-46d5-a024-b71aad1dff4f",
+  "timestamp": "2026-11-22T00:22:43.495903+00:00",
+  "content_type": "diagnostico",
+  "profile_id": "iniciante",
+  "customer_message": "Meu roteador está com uma luz vermelha piscando e a internet sumiu. Não entendo nada de rede e tenho medo de quebrar o aparelho se apertar algo errado. Me ajudem por favor!",
+  "v1_output": "Diagnóstico básico para iniciante: O problema relatado ('Meu roteador está com uma luz vermelha piscando e a internet sumiu. Não entendo nada de rede e tenho medo de quebrar o aparelho se apertar algo errado. Me ajudem por favor!') decorre de uma falha temporária de conexão ou credenciais inválidas. Recomenda-se reiniciar a sessão.",
+  "v2_output": "### 1. Resumo do Problema\nFalha de autenticação e comunicação decorrente de instabilidade no serviço relatado em: 'Meu roteador está com uma luz vermelha piscando e a internet...'.\n\n### 2. Causa Provável (Diagnóstico Técnico)\nInconsistência nos tokens de sessão locais ou timeout na resolução de nomes do gateway de autenticação.\n\n### 3. Fatores Contribuintes e Sintomas Associados\nCache de credenciais corrompido no cliente ou intermitência na conexão HTTPS com a API central.\n\n### 4. Gravidade e Nível de Esforço Estimado\nGravidade: Média. Resolução estimada em menos de 10 minutos com renovação de sessão.",
+  "v1_scores": {
+    "clareza": {
+      "name": "clareza",
+      "score": 3,
+      "justification": "Sem seções ou títulos; sem itens de lista; frases curtas (média de 11 palavras); extensão adequada (53 palavras)."
+    },
+    "adequacao_nivel_cliente": {
+      "name": "adequacao_nivel_cliente",
+      "score": 3,
+      "justification": "Jargões para cliente leigo: sessão; frases curtas e acessíveis."
+    },
+    "acionabilidade": {
+      "name": "acionabilidade",
+      "score": 3,
+      "justification": "Identifica a causa provável; indica ação recomendada."
+    }
+  },
+  "v2_scores": {
+    "clareza": {
+      "name": "clareza",
+      "score": 4,
+      "justification": "Possui seções/títulos; sem itens de lista; frases curtas (média de 7 palavras); extensão adequada (93 palavras)."
+    },
+    "adequacao_nivel_cliente": {
+      "name": "adequacao_nivel_cliente",
+      "score": 2,
+      "justification": "Jargões para cliente leigo: gateway, timeout, tokens, api, https; frases curtas e acessíveis."
+    },
+    "acionabilidade": {
+      "name": "acionabilidade",
+      "score": 5,
+      "justification": "Identifica a causa provável; indica ação recomendada; avalia gravidade ou impacto; organizado em seções."
+    }
+  },
+  "v1_average": 3.0,
+  "v2_average": 3.67,
+  "winner": "v2",
+  "summary": "A versão v2 superou a v1 em 0.67 ponto(s) na média da rubrica oficial. Melhorias da v2: Clareza (+1), Acionabilidade (+2). Regressões da v2: Adequação ao nível do cliente (-1)."
+}

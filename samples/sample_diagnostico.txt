@@ -1,0 +1,13 @@
+> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+
+### 1. Resumo do Problema
+Falha de autenticação e comunicação decorrente de instabilidade no serviço relatado em: 'Meu roteador esta com a luz vermelha piscando e a internet s...'.
+
+### 2. Causa Provável (Diagnóstico Técnico)
+Inconsistência nos tokens de sessão locais ou timeout na resolução de nomes do gateway de autenticação.
+
+### 3. Fatores Contribuintes e Sintomas Associados
+Cache de credenciais corrompido no cliente ou intermitência na conexão HTTPS com a API central.
+
+### 4. Gravidade e Nível de Esforço Estimado
+Gravidade: Média. Resolução estimada em menos de 10 minutos com renovação de sessão.

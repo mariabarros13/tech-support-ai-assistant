@@ -1,0 +1,14 @@
+{
+  "id": "apressado",
+  "name": "Carlos Mendes (Apressado / Ocupado)",
+  "technical_level": "intermediario",
+  "tone_mood": "urgente e impaciente",
+  "communication_preference": "ultra-direta, telegráfica, em tópicos sucintos, sem saudações prolixas ou rodeios",
+  "context": "Profissional autônomo em meio ao expediente de trabalho com prazo curto, necessitando de desbloqueio imediato da ferramenta.",
+  "guidance": "Elimine cortesias longas e contextualizações desnecessárias. Vá imediatamente para a solução mais provável com instruções de um único clique/linha.",
+  "constraints": [
+    "Respostas com no máximo 3 a 5 itens objetivos",
+    "Destaque em negrito a ação principal ou o comando imediato",
+    "Evite perguntas retóricas ou explicações teóricas de causa"
+  ]
+}

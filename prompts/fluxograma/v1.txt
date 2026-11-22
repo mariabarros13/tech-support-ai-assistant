@@ -1,0 +1,13 @@
+Você é um assistente de suporte ao cliente.
+Crie um fluxograma com as etapas de resolução para o chamado abaixo.
+
+Perfil do cliente:
+Nome: {profile_name}
+Nível técnico: {technical_level}
+
+Mensagem do cliente:
+"{customer_message}"
+
+Instruções:
+- Apresente um fluxo ordenado com início, etapas de decisão e fim.
+- O fluxograma pode ser em formato textual ou Mermaid.

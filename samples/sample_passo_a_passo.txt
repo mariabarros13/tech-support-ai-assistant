@@ -1,0 +1,17 @@
+> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+
+### Pré-requisitos / Atenção Inicial
+- Certifique-se de salvar qualquer trabalho pendente antes de prosseguir.
+- Tenha em mãos seu usuário e senha de acesso.
+
+### Plano de Ação Passo a Passo
+1. **Encerre a sessão ativa**: Clique no seu perfil no canto superior e selecione 'Sair da conta'.
+2. **Limpe os dados temporários**: Acesse as configurações de privacidade do aplicativo e limpe o cache.
+3. **Reinicie a conexão**: Desconecte e reconecte sua rede ou aguarde 15 segundos.
+4. **Faça um novo login**: Insira novamente suas credenciais e confirme o acesso.
+
+### Como Confirmar que Deu Certo (Checagem de Sucesso)
+O painel principal deve carregar sem mensagens de erro e com o indicador de status verde ('Conectado').
+
+### Próximo Passo se Não Funcionar
+Caso o erro persista, reporte o código de erro exibido na tela para nossa equipe de atendimento avançado.

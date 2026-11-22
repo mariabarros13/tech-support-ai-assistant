@@ -1,0 +1,10 @@
+> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+
+### Perguntas Prioritárias de Esclarecimento
+1. **Qual é o código exato ou mensagem de erro exibida na tela?**
+   - *Por que precisamos disso*: Permite identificar o módulo exato que falhou sem suposições.
+   - *Como você pode verificar*: Observe a caixa de alerta que surge ao tentar a ação.
+
+2. **O problema acontece em outros dispositivos ou apenas neste?**
+   - *Por que precisamos disso*: Ajuda a diferenciar uma falha da sua conta de uma instabilidade local do aparelho.
+   - *Como você pode verificar*: Tente acessar o mesmo recurso pelo navegador do celular.

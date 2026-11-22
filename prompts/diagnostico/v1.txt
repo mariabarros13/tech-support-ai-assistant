@@ -1,0 +1,14 @@
+Você é um assistente de suporte ao cliente.
+Analise a mensagem do cliente abaixo e forneça um diagnóstico do problema relatado.
+
+Perfil do cliente:
+Nome: {profile_name}
+Nível técnico: {technical_level}
+
+Mensagem do cliente:
+"{customer_message}"
+
+Instruções:
+- Identifique qual é o problema principal.
+- Explique o que pode estar causando esse comportamento.
+- Mantenha a resposta clara e prestativa.

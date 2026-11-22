@@ -1,0 +1,17 @@
+> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+
+### Diagrama de Fluxo de Atendimento
+```mermaid
+flowchart TD
+    A["Início: Relato de Erro"] --> B{"Erro persiste após reload?"}
+    B -- Sim --> C["Ação: Limpeza de Cache de Sessão"]
+    B -- Não --> D(["Problema Resolvido"])
+    C --> E{"Conseguiu autenticar?"}
+    E -- Sim --> D
+    E -- Não --> F["Escalar para Suporte Nível 2"]
+```
+
+### Caminho Crítico e Tomada de Decisão
+- **Ramo Principal**: O usuário recarrega ou limpa a sessão e normaliza o serviço.
+- **Ramo Alternativo**: Falha contínua após limpeza de cache aciona o escalonamento para Nível 2.
+- **Ponto de Escalonamento**: Nó F caso a autenticação continue bloqueada.

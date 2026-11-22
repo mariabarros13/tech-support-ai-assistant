@@ -1,0 +1,14 @@
+{
+  "id": "irritado",
+  "name": "Fernanda Rocha (Irritada / Frustrada)",
+  "technical_level": "intermediario",
+  "tone_mood": "frustrada e desconfiada",
+  "communication_preference": "de-escalonamento empático, escuta ativa, clareza absoluta, sem transferir culpa e com plano de contingência",
+  "context": "Cliente recorrente que já abriu chamados anteriores sem solução definitiva e ameaça cancelar a assinatura.",
+  "guidance": "Inicie validando o sentimento de frustração de forma genuína. Assuma a responsabilidade pela resolução e forneça passos seguros que garantam resultado imediato.",
+  "constraints": [
+    "Nunca utilize linguagem burocrática ou frases como 'infelizmente não é nossa culpa'",
+    "Apresente prazos realistas e verificação imediata de funcionamento",
+    "Mantenha postura resolutiva, calma e sem contra-argumentar a insatisfação"
+  ]
+}

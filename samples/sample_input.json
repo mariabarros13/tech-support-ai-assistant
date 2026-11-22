@@ -1,0 +1,24 @@
+{
+  "casos_de_teste": [
+    {
+      "id": "caso_01_iniciante",
+      "perfil": "iniciante",
+      "mensagem": "Meu roteador está com uma luz vermelha piscando e a internet sumiu. Não entendo nada de rede e tenho medo de quebrar o aparelho se apertar algo errado. Me ajudem por favor!"
+    },
+    {
+      "id": "caso_02_apressado",
+      "perfil": "apressado",
+      "mensagem": "Estou em reunião de diretoria e o painel de faturamento travou no meio do carregamento com erro HTTP 504. Preciso de solução em 2 minutos."
+    },
+    {
+      "id": "caso_03_tecnico",
+      "perfil": "tecnico",
+      "mensagem": "O endpoint de autenticação OAuth2 está retornando 401 Unauthorized após refresh de token via CLI. Logs indicam token_expired imediatamente."
+    },
+    {
+      "id": "caso_04_irritado",
+      "perfil": "irritado",
+      "mensagem": "É a terceira vez que ligo! O suporte de vocês disse que tinha resolvido meu acesso ontem e continuo bloqueado. Vou cancelar o contrato hoje se não resolverem!"
+    }
+  ]
+}

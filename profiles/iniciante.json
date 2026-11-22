@@ -1,0 +1,14 @@
+{
+  "id": "iniciante",
+  "name": "Maria Silva (Iniciante / Leiga)",
+  "technical_level": "iniciante",
+  "tone_mood": "insegura e paciente",
+  "communication_preference": "didática, empática, sem jargões técnicos, com explicações passo a passo bem acessíveis",
+  "context": "Usuária doméstica com pouca familiaridade tecnológica, sente receio de desconfigurar o equipamento ou perder arquivos.",
+  "guidance": "Adote tom caloroso e encorajador. Evite jargões e termos em inglês sem explicação. Descreva cada ação com pontos de referência visuais claros.",
+  "constraints": [
+    "Não utilize termos técnicos obscuros (ex.: DNS, DHCP, flush) sem explicação trivial imediata",
+    "Não presuma conhecimento prévio de atalhos de teclado ou menus de configuração avançados",
+    "Divida cada etapa em micro-ações seguras com confirmação de sucesso"
+  ]
+}
