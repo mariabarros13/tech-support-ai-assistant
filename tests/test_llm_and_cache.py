@@ -402,3 +402,80 @@ def test_llm_client_marks_estimated_tokens_without_usage_metadata(temp_cache, mo
     _, _, _, tokens = _call(client)
     assert tokens["source"] == "word_estimate"
     assert tokens["completion_tokens"] == 3
+
+
+@pytest.mark.parametrize(
+    "raw,expected",
+    [(None, 60.0), ("", 60.0), ("30", 30.0), ("2.5", 2.5), ("abc", 60.0), ("0", 60.0), ("-5", 60.0)],
+)
+def test_parse_timeout_seconds(raw, expected):
+    """LLM_TIMEOUT_SECONDS inválido, vazio ou não positivo deve cair no padrão de 60s."""
+    from src.config import parse_timeout_seconds
+
+    assert parse_timeout_seconds(raw) == expected
+
+
+def test_llm_client_rejects_non_positive_timeout(temp_cache):
+    with pytest.raises(ValueError):
+        LLMClient(api_key="chave_valida", mock_mode=False, cache_manager=temp_cache, timeout_seconds=0)
+
+
+def test_llm_client_passes_timeout_to_sdk_in_milliseconds(temp_cache, monkeypatch):
+    """O cliente Gemini deve ser criado com HttpOptions.timeout em milissegundos."""
+    import google.genai
+
+    captured = {}
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+
+    monkeypatch.setattr(google.genai, "Client", FakeClient)
+    client = LLMClient(api_key="chave_valida", mock_mode=False, cache_manager=temp_cache, timeout_seconds=12.5)
+    client._get_gemini_client()
+
+    assert captured["api_key"] == "chave_valida"
+    assert captured["http_options"].timeout == 12500
+
+
+def test_llm_client_timeout_is_enforced_against_hanging_server(temp_cache, monkeypatch):
+    """Integração local: com um servidor que aceita a conexão e nunca responde, a chamada
+    deve falhar por timeout (ServiceUnavailableError) em vez de travar indefinidamente."""
+    import socket
+    import threading
+    import time as _time
+
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind(("127.0.0.1", 0))
+    server.listen(1)
+    port = server.getsockname()[1]
+    accepted = []
+    stop = threading.Event()
+
+    def accept_and_hang():
+        server.settimeout(10)
+        try:
+            conn, _ = server.accept()
+            accepted.append(conn)
+            stop.wait(10)
+        except OSError:
+            pass
+
+    thread = threading.Thread(target=accept_and_hang, daemon=True)
+    thread.start()
+    monkeypatch.setenv("GOOGLE_GEMINI_BASE_URL", f"http://127.0.0.1:{port}")
+
+    client = LLMClient(api_key="chave_teste", mock_mode=False, cache_manager=temp_cache, timeout_seconds=1)
+    start = _time.perf_counter()
+    try:
+        with pytest.raises(ServiceUnavailableError) as exc_info:
+            _call(client)
+    finally:
+        stop.set()
+        for conn in accepted:
+            conn.close()
+        server.close()
+    elapsed = _time.perf_counter() - start
+
+    assert "tempo limite de 1s" in str(exc_info.value)
+    assert elapsed < 8, f"A chamada levou {elapsed:.1f}s; o timeout não foi aplicado"

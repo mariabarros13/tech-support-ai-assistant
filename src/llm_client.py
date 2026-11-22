@@ -3,7 +3,7 @@
 import time
 from typing import Any, Dict, Optional, Tuple
 from src.cache_manager import CacheManager
-from src.config import GEMINI_API_KEY, LLM_MODEL, MOCK_MODE, CACHE_DIR
+from src.config import GEMINI_API_KEY, LLM_MODEL, LLM_TIMEOUT_SECONDS, MOCK_MODE, CACHE_DIR
 
 
 def _transport_error_types() -> Tuple[type, ...]:
@@ -122,18 +122,28 @@ class LLMClient:
         model_name: Optional[str] = None,
         mock_mode: Optional[bool] = None,
         cache_manager: Optional[CacheManager] = None,
+        timeout_seconds: Optional[float] = None,
     ):
         self.api_key = api_key if api_key is not None else GEMINI_API_KEY
         self.model_name = model_name or LLM_MODEL
         self.mock_mode = mock_mode if mock_mode is not None else MOCK_MODE
         self.cache = cache_manager or CacheManager(CACHE_DIR)
+        if timeout_seconds is not None and timeout_seconds <= 0:
+            raise ValueError("timeout_seconds deve ser maior que zero")
+        self.timeout_seconds = float(timeout_seconds) if timeout_seconds is not None else LLM_TIMEOUT_SECONDS
         self._gemini_client = None
-        self.last_token_usage: Dict[str, int] = {}
+        self.last_token_usage: Dict[str, Any] = {}
 
     def _get_gemini_client(self):
         if self._gemini_client is None:
             from google import genai
-            self._gemini_client = genai.Client(api_key=self.api_key)
+            from google.genai import types
+
+            # HttpOptions.timeout é expresso em milissegundos; sem ele o SDK espera indefinidamente
+            self._gemini_client = genai.Client(
+                api_key=self.api_key,
+                http_options=types.HttpOptions(timeout=int(self.timeout_seconds * 1000)),
+            )
         return self._gemini_client
 
     def _classify_error(self, e: Exception) -> LLMError:
@@ -174,7 +184,10 @@ class LLMClient:
             return LLMError(f"A API do Gemini rejeitou a requisição ({label}): {e.message or details}")
 
         if isinstance(e, TRANSPORT_ERRORS):
-            kind = "tempo limite excedido" if "timeout" in type(e).__name__.lower() else "falha de conexão"
+            if "timeout" in type(e).__name__.lower():
+                kind = f"tempo limite de {self.timeout_seconds:g}s excedido; ajuste LLM_TIMEOUT_SECONDS se necessário"
+            else:
+                kind = "falha de conexão"
             return ServiceUnavailableError(
                 f"Não foi possível comunicar com a API do Gemini ({kind}: {type(e).__name__}). "
                 "Verifique sua conexão com a internet ou utilize a flag --mock."
