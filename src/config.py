@@ -10,7 +10,7 @@ load_dotenv(BASE_DIR / ".env")
 
 # Provedor e Chaves
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-LLM_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemini-3.5-flash")
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini")
 
 DEFAULT_LLM_TIMEOUT_SECONDS = 60.0

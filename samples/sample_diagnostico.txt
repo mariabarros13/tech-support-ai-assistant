@@ -1,13 +1,61 @@
-> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+> Saída real gerada pelo modelo gemini-3.5-flash em 2026-11-22 (caso_01_iniciante, perfil iniciante, prompt v2). Ver samples/README.md.
+
+Olá, Maria! Antes de começarmos, quero te tranquilizar: **você não vai quebrar o aparelho** e está totalmente segura. É muito comum se sentir assim quando essas luzes mudam, mas vamos resolver isso juntas, passo a passo e sem pressa!
+
+---
 
 ### 1. Resumo do Problema
-Falha de autenticação e comunicação decorrente de instabilidade no serviço relatado em: 'Meu roteador esta com a luz vermelha piscando e a internet s...'.
+O seu roteador (aquela caixinha de onde vem o Wi-Fi) perdeu temporariamente a comunicação com a nossa central de internet. A luz vermelha pisca para nos avisar, de forma simples, que o sinal que vem do cabo da rua não está conseguindo chegar até a caixinha.
+
+---
 
 ### 2. Causa Provável (Diagnóstico Técnico)
-Inconsistência nos tokens de sessão locais ou timeout na resolução de nomes do gateway de autenticação.
+Pense na internet como a água que chega pela torneira: se o cano estiver um pouco folgado ou se a distribuidora fechar a chave por um instante, a água para de sair. 
+
+Neste momento, a luz vermelha (que costuma ter o desenho de um **pequeno globo terrestre** ou a palavra *Internet*) indica que o caminho do sinal foi interrompido. Isso costuma acontecer por dois motivos simples:
+1. **Folga no cabo:** O cabo que traz o sinal da parede para o roteador pode ter se soltado um pouquinho (às vezes acontece ao limpar a poeira perto do aparelho).
+2. **Cansaço do sistema (Pequeno travamento):** O roteador é como um minicomputador e, às vezes, precisa apenas ser desligado e ligado para "respirar" e reorganizar a casa.
+
+---
 
 ### 3. Fatores Contribuintes e Sintomas Associados
-Cache de credenciais corrompido no cliente ou intermitência na conexão HTTPS com a API central.
+* **Deslocamento do aparelho:** Mover o roteador de lugar para limpar ou organizar fios pode afrouxar as tomadas ou conexões.
+* **Oscilação na rede elétrica:** Uma pequena variação na energia da casa pode fazer o aparelho "travar" em um modo de alerta.
+* **Sintomas que você pode notar:** 
+  * Seus aparelhos (celular, televisão, notebook) continuam mostrando o nome da sua rede Wi-Fi, mas ao tentar usar aparece a mensagem "Sem Internet" ou "Conectado sem Internet".
+  * A luz do sinal não está na cor azul ou verde de costume.
+
+---
 
 ### 4. Gravidade e Nível de Esforço Estimado
-Gravidade: Média. Resolução estimada em menos de 10 minutos com renovação de sessão.
+* **Gravidade:** **Baixa.** É um comportamento normal do aparelho diante de uma perda momentânea de sinal. Não há qualquer dano físico ao seu roteador.
+* **Tempo Estimado de Resolução:** De 3 a 5 minutos.
+* **Impacto:** Temporário (apenas interrupção do acesso até refazer a conexão).
+
+---
+
+### 🟢 Seu Passo a Passo Seguro de Resolução
+
+Maria, faça apenas o que se sentir confortável. Siga estas etapas com calma:
+
+#### **Passo 1: Verificação Visual dos Cabos**
+1. Olhe para a parte de trás da caixinha do roteador.
+2. Procure por um cabo (geralmente preto ou branco) que vem direto da tomada de parede até o aparelho.
+3. **Ação:** Com a ponta dos dedos, empurre suavemente a pontinha desse cabo para dentro da entrada do roteador até sentir que ele está bem firme.
+* *Como saber se deu certo:* O cabo não deve balançar nem sair com facilidade.
+
+#### **Passo 2: O "Reinício de Descanso"**
+1. Siga o fio de energia do roteador até a tomada na parede.
+2. **Ação:** Retire o aparelhinho da tomada com cuidado.
+3. **Aguarde:** Conte devagar até 30 (isso serve para o aparelho limpar a memória e descansar).
+4. **Ação:** Coloque o aparelho de volta na tomada.
+
+#### **Passo 3: Acompanhamento das Luzes**
+1. Aguarde cerca de **2 minutos** enquanto o roteador liga novamente. As luzes vão piscar de várias cores.
+2. *Como saber se deu certo:* A luz do globinho deve parar de piscar em vermelho e voltar a ficar **verde ou azul fixa**.
+
+---
+
+Se após esses passos a luz continuar piscando em vermelho, não se preocupe! Isso significará apenas que a interrupção é na fiação da rua e nós enviaremos um técnico para cuidar de tudo para você sem que você precise mexer em nada. 
+
+Me avise assim que tentar o Passo 1 e o Passo 2! Estou aqui com você.

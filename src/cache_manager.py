@@ -19,7 +19,7 @@ class CacheManager:
         prompt_text: str,
         profile_id: str,
         customer_message: str,
-        model_name: str = "gemini-2.5-flash",
+        model_name: str = "gemini-3.5-flash",
         mock_mode: bool = False,
     ) -> str:
         """Gera um hash SHA-256 determinístico para a combinação exata de entradas.

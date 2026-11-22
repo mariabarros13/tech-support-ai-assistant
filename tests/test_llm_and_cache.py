@@ -34,7 +34,7 @@ def test_cache_set_get_and_clear(temp_cache):
         prompt_text="Prompt teste",
         profile_id="iniciante",
         customer_message="Não consigo logar",
-        model_name="gemini-2.5-flash",
+        model_name="gemini-3.5-flash",
     )
 
     # Cache miss inicial
@@ -350,7 +350,7 @@ def test_llm_client_transport_errors_from_sdk(temp_cache, monkeypatch, module_na
 
 
 def test_llm_client_records_thoughts_tokens(temp_cache, monkeypatch):
-    """Tokens de raciocínio (thoughts_token_count) do gemini-2.5 devem ser registrados e persistidos no cache."""
+    """Tokens de raciocínio (thoughts_token_count) dos modelos com raciocínio devem ser registrados e persistidos no cache."""
     from google.genai import types
 
     client = LLMClient(api_key="chave_valida", mock_mode=False, cache_manager=temp_cache)

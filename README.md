@@ -59,7 +59,7 @@ Assistente inteligente de atendimento ao cliente desenvolvido em Python, focado 
 │   └── cli.py                 # Interface de linha de comando (CLI)
 ├── web/                       # Interface Web Demonstrativa
 │   └── app.py                 # Aplicação interativa em Streamlit
-├── samples/                   # Casos de teste e saídas de exemplo (saídas sintéticas do Mock)
+├── samples/                   # Casos de teste e saídas de exemplo (saídas reais do Gemini)
 │   ├── README.md              # Origem e limitações dos exemplos
 │   ├── sample_input.json
 │   ├── sample_diagnostico.txt
@@ -121,7 +121,7 @@ Edite o arquivo `.env` para inserir sua chave da API Google Gemini (`GEMINI_API_
 - **Isolamento do cache**: o modo de execução faz parte da chave do cache, portanto respostas Mock nunca são servidas a execuções reais (e vice-versa). Cada registro em `storage/runs/` informa `metadata.mock_mode`.
 - **Erros da API tratados**: autenticação (401/403 ou 400 `API_KEY_INVALID`), limite de requisições/quota (429), modelo inexistente ou indisponível (404), indisponibilidade do serviço (500/502/503/504) e falhas de conexão ou timeout da biblioteca HTTP do SDK geram mensagens específicas (com o código HTTP) e código de saída `1`. A classificação usa o tipo da exceção e o código HTTP, não o texto da mensagem.
 - **Timeout**: cada chamada ao Gemini espera no máximo `LLM_TIMEOUT_SECONDS` segundos (padrão `60`; valores vazios, inválidos ou não positivos usam o padrão). Sem essa configuração, o SDK não impõe limite e uma chamada poderia ficar travada indefinidamente. Ao estourar o limite, a CLI informa o tempo configurado e sai com código `1`.
-- **Registro de tokens**: em chamadas reais, `metadata.token_usage` traz `prompt_tokens`, `completion_tokens`, `thoughts_tokens` (raciocínio interno dos modelos 2.5, cobrado como saída) e `total_tokens`, lidos do `usage_metadata` do Gemini. O campo `source` indica a origem: `usage_metadata` (valor real), `word_estimate` (API não informou; estimativa por palavras) ou `mock_estimate` (modo Mock).
+- **Registro de tokens**: em chamadas reais, `metadata.token_usage` traz `prompt_tokens`, `completion_tokens`, `thoughts_tokens` (raciocínio interno dos modelos com raciocínio, como 2.5 e 3.5, cobrado como saída) e `total_tokens`, lidos do `usage_metadata` do Gemini. O campo `source` indica a origem: `usage_metadata` (valor real), `word_estimate` (API não informou; estimativa por palavras) ou `mock_estimate` (modo Mock).
 
 ---
 
@@ -197,5 +197,5 @@ A suíte cobre validação de perfis e templates, cache determinístico (incluin
 
 ## ⚠️ Limitações Conhecidas
 
-- Os exemplos em `samples/` e os números em `PROMPT_ENGINEERING_NOTES.md` foram produzidos em **modo Mock**; ainda não há uma rodada documentada com o Gemini real.
+- A rodada real documentada em `PROMPT_ENGINEERING_NOTES.md` cobre 11 das 16 comparações planejadas: as 4 de fluxograma e a de perguntas de esclarecimento do perfil `irritado` foram interrompidas por limite de cota da API (HTTP 429).
 - O avaliador é heurístico (ver seção da rubrica); ele não substitui revisão humana nem um avaliador baseado em LLM.

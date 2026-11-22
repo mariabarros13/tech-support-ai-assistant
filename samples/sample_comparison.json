@@ -1,39 +1,39 @@
 {
-  "_aviso": "Exemplo SINTÉTICO gerado em modo Mock (sem chamada ao Gemini). As saídas v1/v2 são textos fixos do Mock e não refletem a qualidade real dos prompts; as notas foram calculadas pelo avaliador heurístico atual (src/evaluator.py).",
-  "id": "c8717ee2-37aa-46d5-a024-b71aad1dff4f",
-  "timestamp": "2026-11-22T00:22:43.495903+00:00",
+  "_origem": "Comparação real gerada com o modelo gemini-3.5-flash em 2026-11-22 para o caso_01_iniciante (diagnóstico). Notas calculadas pelo avaliador heurístico de src/evaluator.py.",
+  "id": "ac6e6e84-433c-4276-9b74-51c0a0b149e7",
+  "timestamp": "2026-11-22T01:29:46.799874+00:00",
   "content_type": "diagnostico",
   "profile_id": "iniciante",
   "customer_message": "Meu roteador está com uma luz vermelha piscando e a internet sumiu. Não entendo nada de rede e tenho medo de quebrar o aparelho se apertar algo errado. Me ajudem por favor!",
-  "v1_output": "Diagnóstico básico para iniciante: O problema relatado ('Meu roteador está com uma luz vermelha piscando e a internet sumiu. Não entendo nada de rede e tenho medo de quebrar o aparelho se apertar algo errado. Me ajudem por favor!') decorre de uma falha temporária de conexão ou credenciais inválidas. Recomenda-se reiniciar a sessão.",
-  "v2_output": "### 1. Resumo do Problema\nFalha de autenticação e comunicação decorrente de instabilidade no serviço relatado em: 'Meu roteador está com uma luz vermelha piscando e a internet...'.\n\n### 2. Causa Provável (Diagnóstico Técnico)\nInconsistência nos tokens de sessão locais ou timeout na resolução de nomes do gateway de autenticação.\n\n### 3. Fatores Contribuintes e Sintomas Associados\nCache de credenciais corrompido no cliente ou intermitência na conexão HTTPS com a API central.\n\n### 4. Gravidade e Nível de Esforço Estimado\nGravidade: Média. Resolução estimada em menos de 10 minutos com renovação de sessão.",
+  "v1_output": "**Diagnóstico do Problema**\n\n**Olá, Maria!** Antes de tudo, fique tranquila: você não vai quebrar o aparelho! Estamos aqui para te ajudar de forma bem simples e segura.\n\n---\n\n### 1. Problema Principal\nO problema principal é a **perda de conexão entre o seu roteador e a rede de internet**. \n\nQuando a luz do roteador fica **vermelha e piscando** (geralmente a luz indicada como \"Internet\", \"WAN\" ou \"LOS\"), significa que o aparelho está ligado, mas não está conseguindo receber o sinal da internet que vem da rua.\n\n---\n\n### 2. O que pode estar causando esse comportamento?\n\nExistem três motivos principais para isso acontecer:\n\n1. **Cabo folgado ou desconectado:** O cabo da internet (o que vem da rua e conecta atrás do roteador) pode ter se soltado um pouquinho por conta de um esbarrão, limpeza ou vento.\n2. **Instabilidade na rede da sua região:** Pode estar ocorrendo uma manutenção temporária na fiação da sua rua/bairro ou uma oscilação no sinal da nossa central.\n3. **Travamento temporário do roteador:** Às vezes o aparelho precisa apenas ser \"reiniciado\" para voltar a se comunicar corretamente com a rede.\n\n---\n\n### 3. Recomendação Inicial (Passo Seguro)\n\nComo você tem receio de apertar algo errado, **não precisa apertar nenhum botão no aparelho agora**. \n\nPara começarmos a resolver, faça apenas o seguinte:\n* Dê uma olhadinha atrás do roteador e veja se o cabo principal está bem encaixado (você pode dar uma leve empurradinha nele para garantir que não está solto).\n\nSe o cabo estiver firme e a luz continuar vermelha, me avise! Assim, posso checar daqui se há alguma manutenção no seu bairro ou te orientar a desligá-lo da tomada por alguns segundos com total segurança.",
+  "v2_output": "Olá, Maria! Antes de começarmos, quero te tranquilizar: **você não vai quebrar o aparelho** e está totalmente segura. É muito comum se sentir assim quando essas luzes mudam, mas vamos resolver isso juntas, passo a passo e sem pressa!\n\n---\n\n### 1. Resumo do Problema\nO seu roteador (aquela caixinha de onde vem o Wi-Fi) perdeu temporariamente a comunicação com a nossa central de internet. A luz vermelha pisca para nos avisar, de forma simples, que o sinal que vem do cabo da rua não está conseguindo chegar até a caixinha.\n\n---\n\n### 2. Causa Provável (Diagnóstico Técnico)\nPense na internet como a água que chega pela torneira: se o cano estiver um pouco folgado ou se a distribuidora fechar a chave por um instante, a água para de sair. \n\nNeste momento, a luz vermelha (que costuma ter o desenho de um **pequeno globo terrestre** ou a palavra *Internet*) indica que o caminho do sinal foi interrompido. Isso costuma acontecer por dois motivos simples:\n1. **Folga no cabo:** O cabo que traz o sinal da parede para o roteador pode ter se soltado um pouquinho (às vezes acontece ao limpar a poeira perto do aparelho).\n2. **Cansaço do sistema (Pequeno travamento):** O roteador é como um minicomputador e, às vezes, precisa apenas ser desligado e ligado para \"respirar\" e reorganizar a casa.\n\n---\n\n### 3. Fatores Contribuintes e Sintomas Associados\n* **Deslocamento do aparelho:** Mover o roteador de lugar para limpar ou organizar fios pode afrouxar as tomadas ou conexões.\n* **Oscilação na rede elétrica:** Uma pequena variação na energia da casa pode fazer o aparelho \"travar\" em um modo de alerta.\n* **Sintomas que você pode notar:** \n  * Seus aparelhos (celular, televisão, notebook) continuam mostrando o nome da sua rede Wi-Fi, mas ao tentar usar aparece a mensagem \"Sem Internet\" ou \"Conectado sem Internet\".\n  * A luz do sinal não está na cor azul ou verde de costume.\n\n---\n\n### 4. Gravidade e Nível de Esforço Estimado\n* **Gravidade:** **Baixa.** É um comportamento normal do aparelho diante de uma perda momentânea de sinal. Não há qualquer dano físico ao seu roteador.\n* **Tempo Estimado de Resolução:** De 3 a 5 minutos.\n* **Impacto:** Temporário (apenas interrupção do acesso até refazer a conexão).\n\n---\n\n### 🟢 Seu Passo a Passo Seguro de Resolução\n\nMaria, faça apenas o que se sentir confortável. Siga estas etapas com calma:\n\n#### **Passo 1: Verificação Visual dos Cabos**\n1. Olhe para a parte de trás da caixinha do roteador.\n2. Procure por um cabo (geralmente preto ou branco) que vem direto da tomada de parede até o aparelho.\n3. **Ação:** Com a ponta dos dedos, empurre suavemente a pontinha desse cabo para dentro da entrada do roteador até sentir que ele está bem firme.\n* *Como saber se deu certo:* O cabo não deve balançar nem sair com facilidade.\n\n#### **Passo 2: O \"Reinício de Descanso\"**\n1. Siga o fio de energia do roteador até a tomada na parede.\n2. **Ação:** Retire o aparelhinho da tomada com cuidado.\n3. **Aguarde:** Conte devagar até 30 (isso serve para o aparelho limpar a memória e descansar).\n4. **Ação:** Coloque o aparelho de volta na tomada.\n\n#### **Passo 3: Acompanhamento das Luzes**\n1. Aguarde cerca de **2 minutos** enquanto o roteador liga novamente. As luzes vão piscar de várias cores.\n2. *Como saber se deu certo:* A luz do globinho deve parar de piscar em vermelho e voltar a ficar **verde ou azul fixa**.\n\n---\n\nSe após esses passos a luz continuar piscando em vermelho, não se preocupe! Isso significará apenas que a interrupção é na fiação da rua e nós enviaremos um técnico para cuidar de tudo para você sem que você precise mexer em nada. \n\nMe avise assim que tentar o Passo 1 e o Passo 2! Estou aqui com você.",
   "v1_scores": {
     "clareza": {
       "name": "clareza",
-      "score": 3,
-      "justification": "Sem seções ou títulos; sem itens de lista; frases curtas (média de 11 palavras); extensão adequada (53 palavras)."
+      "score": 5,
+      "justification": "Possui seções/títulos; usa itens de lista; frases curtas (média de 10 palavras); extensão adequada (280 palavras)."
     },
     "adequacao_nivel_cliente": {
       "name": "adequacao_nivel_cliente",
-      "score": 3,
-      "justification": "Jargões para cliente leigo: sessão; frases curtas e acessíveis."
+      "score": 5,
+      "justification": "Vocabulário sem jargões técnicos; frases curtas e acessíveis."
     },
     "acionabilidade": {
       "name": "acionabilidade",
-      "score": 3,
-      "justification": "Identifica a causa provável; indica ação recomendada."
+      "score": 4,
+      "justification": "Identifica a causa provável; indica ação recomendada; organizado em seções."
     }
   },
   "v2_scores": {
     "clareza": {
       "name": "clareza",
       "score": 4,
-      "justification": "Possui seções/títulos; sem itens de lista; frases curtas (média de 7 palavras); extensão adequada (93 palavras)."
+      "justification": "Possui seções/títulos; usa itens de lista; frases curtas (média de 10 palavras); extensão inadequada (635 palavras)."
     },
     "adequacao_nivel_cliente": {
       "name": "adequacao_nivel_cliente",
-      "score": 2,
-      "justification": "Jargões para cliente leigo: gateway, timeout, tokens, api, https; frases curtas e acessíveis."
+      "score": 5,
+      "justification": "Vocabulário sem jargões técnicos; frases curtas e acessíveis."
     },
     "acionabilidade": {
       "name": "acionabilidade",
@@ -41,8 +41,8 @@
       "justification": "Identifica a causa provável; indica ação recomendada; avalia gravidade ou impacto; organizado em seções."
     }
   },
-  "v1_average": 3.0,
-  "v2_average": 3.67,
-  "winner": "v2",
-  "summary": "A versão v2 superou a v1 em 0.67 ponto(s) na média da rubrica oficial. Melhorias da v2: Clareza (+1), Acionabilidade (+2). Regressões da v2: Adequação ao nível do cliente (-1)."
+  "v1_average": 4.67,
+  "v2_average": 4.67,
+  "winner": "empate",
+  "summary": "As versões empataram na média da rubrica oficial. Melhorias da v2: Acionabilidade (+1). Regressões da v2: Clareza (-1)."
 }

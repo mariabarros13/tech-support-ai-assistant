@@ -38,7 +38,7 @@ class ExecutionRecord(BaseModel):
     output_text: str = Field(..., description="Texto gerado pelo modelo")
     cached: bool = Field(default=False, description="Indica se a resposta veio do cache")
     latency_ms: float = Field(default=0.0, description="Tempo de resposta em milissegundos")
-    model_name: str = Field(default="gemini-2.5-flash", description="Modelo LLM utilizado")
+    model_name: str = Field(default="gemini-3.5-flash", description="Modelo LLM utilizado")
     metadata: Dict[str, Any] = Field(default_factory=dict, description="Metadados adicionais")
 
 

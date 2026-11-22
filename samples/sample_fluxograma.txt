@@ -1,17 +1,40 @@
-> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+> Saída real gerada pelo modelo gemini-3.5-flash em 2026-11-22 (caso_01_iniciante, perfil iniciante, prompt v2). Ver samples/README.md.
 
 ### Diagrama de Fluxo de Atendimento
+
 ```mermaid
 flowchart TD
-    A["Início: Relato de Erro"] --> B{"Erro persiste após reload?"}
-    B -- Sim --> C["Ação: Limpeza de Cache de Sessão"]
-    B -- Não --> D(["Problema Resolvido"])
-    C --> E{"Conseguiu autenticar?"}
-    E -- Sim --> D
-    E -- Não --> F["Escalar para Suporte Nível 2"]
+    A["Início: Acolhimento empático e identificação da luz vermelha"] --> B["Acalmar a cliente: Confirmar que nenhum botão perigoso será apertado"]
+    B --> C["Passo 1: Verificação visual dos cabos atrás do aparelho"]
+    
+    C --> D{"Existe algum cabo visivelmente solto ou desconectado?"}
+    
+    D -- Sim --> E["Encaixar o cabo delicadamente até ouvir um clique ou sentir firmeza"]
+    E --> F{"A luz vermelha apagou ou mudou para verde/azul?"}
+    
+    D -- Não --> G["Passo 2: Reinicialização simples da energia sem usar o botão Reset"]
+    
+    F -- Sim --> H["Passo 3: Confirmar conexão abrindo um site ou aplicativo"]
+    F -- Não --> G
+    
+    G --> I["Desligar a fonte de energia da tomada com cuidado por 30 segundos"]
+    I --> J["Reconectar na tomada e aguardar 3 minutos enquanto as luzes piscam"]
+    
+    J --> K{"Após aguardar, a luz vermelha desapareceu?"}
+    
+    K -- Sim --> H
+    K -- Não --> L["Escalar para Nível 2 / Agendamento de Técnico de Campo"]
+    
+    H --> M{"A navegação funcionou perfeitamente no celular ou computador?"}
+    
+    M -- Sim --> N(["Problema Resolvido com Sucesso: Conexão Restabelecida!"])
+    M -- Não --> L
 ```
 
+---
+
 ### Caminho Crítico e Tomada de Decisão
-- **Ramo Principal**: O usuário recarrega ou limpa a sessão e normaliza o serviço.
-- **Ramo Alternativo**: Falha contínua após limpeza de cache aciona o escalonamento para Nível 2.
-- **Ponto de Escalonamento**: Nó F caso a autenticação continue bloqueada.
+
+- **Ramo Principal (Fluxo Feliz)**: Acolher a Maria Silva garantindo que o procedimento é totalmente seguro. Orienta-se a checagem física dos cabos atrás do roteador. Se os cabos estiverem firmes, realiza-se o desligamento da tomada por 30 segundos (sem tocar no pequeno botão de *Reset* para evitar desconfigurações). Ao religar e aguardar 3 minutos para a estabilização das luzes, a luz vermelha apaga, a cor verde/azul se restabelece e a navegação em um aplicativo é confirmada com sucesso.
+- **Ramo Alternativo**: Caso seja identificado um cabo solto no Passo 1, orienta-se o encaixe suave. Se a luz normalizar imediatamente, avança-se direto para a validação de navegação sem necessidade de desligar a tomada.
+- **Ponto de Escalonamento**: Se após a checagem dos cabos e a reinicialização elétrica de 30 segundos a luz vermelha persistir piscanço ou acesa, significa uma falha de sinal externo (fibra/cabo da rua) ou defeito físico no equipamento. O chamado é imediatamente transferido para o **Nível 2 / Suporte Especializado** para envio de técnico presencial, mantendo a cliente tranquila e informada.

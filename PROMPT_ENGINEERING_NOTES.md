@@ -64,26 +64,58 @@ As justificativas citam a evidência encontrada no texto e o resumo da comparaç
 
 ## 4. Análise dos Resultados e Comparação Prática
 
-> **Status: resultados com o Gemini real ainda não coletados.** Os números abaixo foram obtidos em **modo Mock**, no qual as saídas são textos fixos por tipo de conteúdo e versão, independentes da mensagem do cliente e do perfil. Eles validam o pipeline (geração → avaliação → persistência) e o comportamento do avaliador, **não** a qualidade dos prompts v1/v2. A análise da hipótese da seção 1 depende de uma rodada com `GEMINI_API_KEY` válida.
+### Condições da rodada
+- **Modelo**: `gemini-3.5-flash` via API do Gemini, em 2026-11-22 (`mock_mode: false` em todos os registros). O modelo padrão anterior, `gemini-2.5-flash`, retornou HTTP 404 nesta conta.
+- **Casos**: os 4 casos de `samples/sample_input.json` (um por perfil), comparando v1 x v2 para cada tipo de conteúdo.
+- **Cobertura**: 11 das 16 comparações planejadas. As 4 comparações de **fluxograma** e a de **perguntas de esclarecimento** do perfil `irritado` não foram concluídas: a API passou a responder HTTP 429 (`RESOURCE_EXHAUSTED`) após cerca de 27 requisições e as novas tentativas continuaram bloqueadas. O fluxograma v2 do `caso_01_iniciante` foi gerado (ver `samples/sample_fluxograma.txt`), mas não entrou em nenhuma comparação.
+- **Avaliação**: avaliador heurístico de `src/evaluator.py`, com os 3 critérios oficiais, aplicado da mesma forma às duas versões. Tokens lidos do `usage_metadata`.
 
-Rodada Mock: os 4 casos de `samples/sample_input.json` × os 4 tipos de conteúdo (16 comparações), avaliados pelo avaliador heurístico atual:
+### Resultado por comparação
+
+| Perfil | Conteúdo | v1 (Clareza / Adequação / Acionabilidade) | Média v1 | v2 (Clareza / Adequação / Acionabilidade) | Média v2 | Vencedor |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| iniciante | diagnóstico | 5 / 5 / 4 | 4.67 | 4 / 5 / 5 | 4.67 | empate |
+| iniciante | passo a passo | 4 / 5 / 5 | 4.67 | 4 / 5 / 5 | 4.67 | empate |
+| iniciante | perguntas | 4 / 5 / 3 | 4.00 | 5 / 5 / 5 | 5.00 | v2 |
+| apressado | diagnóstico | 5 / 4 / 5 | 4.67 | 5 / 5 / 5 | 5.00 | v2 |
+| apressado | passo a passo | 5 / 4 / 3 | 4.00 | 5 / 4 / 5 | 4.67 | v2 |
+| apressado | perguntas | 4 / 4 / 4 | 4.00 | 5 / 4 / 5 | 4.67 | v2 |
+| tecnico | diagnóstico | 5 / 5 / 5 | 5.00 | 4 / 5 / 5 | 4.67 | v1 |
+| tecnico | passo a passo | 5 / 5 / 2 | 4.00 | 4 / 5 / 5 | 4.67 | v2 |
+| tecnico | perguntas | 5 / 5 / 3 | 4.33 | 4 / 5 / 5 | 4.67 | v2 |
+| irritado | diagnóstico | 5 / 4 / 5 | 4.67 | 5 / 4 / 5 | 4.67 | empate |
+| irritado | passo a passo | 5 / 4 / 3 | 4.00 | 5 / 4 / 5 | 4.67 | v2 |
+
+### Médias por critério (11 comparações)
 
 | Critério | Média v1 | Média v2 | Delta |
 | :--- | :---: | :---: | :---: |
-| Clareza | 3.75 | 4.75 | +1.00 |
-| Adequação ao nível do cliente | 3.31 | 3.31 | 0.00 |
-| Acionabilidade | 3.25 | 5.00 | +1.75 |
-| **Média geral** | **3.44** | **4.35** | **+0.91** |
+| Clareza | 4.73 | 4.55 | -0.18 |
+| Adequação ao nível do cliente | 4.55 | 4.64 | +0.09 |
+| Acionabilidade | 3.82 | 5.00 | +1.18 |
+| **Média geral** | **4.36** | **4.73** | **+0.37** |
 
-- Vencedor: v2 em 15 comparações, v1 em 1 (`iniciante` / `passo_a_passo`).
-- O avaliador detectou regressões reais nos textos do Mock: a v2 Mock usa termos como "tokens", "gateway", "cache" e "sessão", que reduzem a adequação para a cliente leiga; e nenhuma das versões Mock demonstra empatia com a cliente frustrada (`irritado`), o que mantém a adequação baixa nesse perfil.
-- Esses achados mostram que a comparação não é favorável à v2 por construção; eles não dizem nada sobre o comportamento do Gemini com os prompts reais.
+Vencedor: v2 em 7 comparações, empate em 3, v1 em 1 (`tecnico` / diagnóstico).
+
+### Análise
+- **Acionabilidade é o ganho consistente da v2** (+1.18; nota 5 em todas as 11). A v1 frequentemente omite a verificação de sucesso ou o plano de contingência no passo a passo (notas 2 e 3) e produz perguntas sem justificativa nem orientação de como obter a informação (nota 3). As seções obrigatórias da v2 ("Como Confirmar que Deu Certo", "Próximo Passo se Não Funcionar", "Por que precisamos disso") eliminam essas lacunas.
+- **Clareza teve regressão por extensão**: as 4 quedas de clareza da v2 (iniciante/diagnóstico e os 3 casos do técnico) têm a mesma causa: a resposta ultrapassou 450 palavras (entre 459 e 687), enquanto a v1 ficou entre 277 e 421. Estrutura e tamanho das frases foram equivalentes. É essa queda que dá a única vitória da v1.
+- **Adequação ao nível do cliente praticamente não diferenciou as versões** (+0.09). Com o modelo real, a v1 já adapta bem o vocabulário: ela recebe o nome do perfil (que contém o rótulo, ex.: "Iniciante / Leiga") e o nível técnico. Nenhuma das versões usou jargão com a cliente leiga, ambas mostraram profundidade técnica ao perfil avançado e ambas validaram o sentimento da cliente frustrada. A única melhoria veio da brevidade da v2 para o cliente apressado no diagnóstico (120 palavras). Limitação: a heurística não verifica as restrições específicas do perfil (ex.: "no máximo 3 a 5 itens" para o apressado), então ganhos reais nesse ponto podem não estar refletidos na nota.
+
+### Custo e latência (chamadas não atendidas pelo cache)
+
+| Versão | Chamadas | Latência média | Latência máxima | Tokens de entrada | Tokens de saída | Tokens de raciocínio | Total |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| v1 | 11 | 12.6 s | 17.1 s | 137 | 524 | 1027 | 1687 |
+| v2 | 12 | 14.3 s | 29.8 s | 616 | 685 | 1299 | 2600 |
+
+A v2 consome cerca de 54% mais tokens por chamada (prompt 4,5 vezes maior e respostas mais longas) e é ~13% mais lenta em média. Os tokens de raciocínio representam a maior parcela do custo nas duas versões. A latência máxima observada (29.8 s) ficou abaixo do timeout padrão de 60 s.
 
 ---
 
 ## 5. Conclusão e Lições Aprendidas
 
-1. **Contexto Estruturado Supera Instruções Longas** *(hipótese de projeto)*: Separar o perfil em atributos explícitos (`technical_level`, `tone_mood`, `constraints`) e injetá-los no template tende a gerar maior aderência do que descrições longas em prosa. A confirmação depende da rodada com o modelo real.
-2. **Formatação Estrita em Diagramas é Crítica** *(hipótese de projeto)*: Modelos de linguagem frequentemente quebram código Mermaid quando caracteres especiais são usados fora de aspas. A v2 restringe a sintaxe (identificadores alfanuméricos, rótulos entre aspas) para reduzir erros de parser; a taxa real de sucesso ainda precisa ser medida com o Gemini.
+1. **Estrutura Obrigatória Gera Acionabilidade; o Perfil Básico Já Gera Adequação**: Na rodada real, o ganho da v2 veio principalmente das seções obrigatórias (verificação de sucesso, contingência, justificativa das perguntas), com acionabilidade 5 em todas as comparações. A hipótese de que injetar mais atributos do perfil (`tone_mood`, `constraints`) melhoraria a adequação não se confirmou pela rubrica: a v1, que recebe apenas nome e nível técnico, já foi adequada ao perfil (4.55 contra 4.64). O custo da v2 é uma resposta mais longa, que reduziu a clareza em 4 de 11 casos; limitar a extensão na v2 é o próximo ajuste natural.
+2. **Formatação Estrita em Diagramas é Crítica** *(hipótese de projeto, ainda não medida)*: Modelos de linguagem frequentemente quebram código Mermaid quando caracteres especiais são usados fora de aspas. A v2 restringe a sintaxe (identificadores alfanuméricos, rótulos entre aspas) para reduzir erros de parser. O único fluxograma real gerado (`samples/sample_fluxograma.txt`) segue essas regras, mas as comparações de fluxograma não foram concluídas e nenhum diagrama foi validado em um renderizador.
 3. **Cache Determinístico Viabiliza Avaliação Barata e Rápida**: Com o hash SHA-256 das entradas (incluindo modelo e modo de execução), rodadas de comparação repetidas são atendidas pelo cache local, sem nova chamada de rede nem consumo de tokens.
 4. **Avaliador Cego à Versão**: A primeira versão do avaliador atribuía notas com base na versão do prompt, garantindo a vitória da v2. A rubrica passou a ser aplicada apenas sobre o conteúdo, o que tornou possível identificar regressões.

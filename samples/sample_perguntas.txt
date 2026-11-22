@@ -1,10 +1,19 @@
-> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+> Saída real gerada pelo modelo gemini-3.5-flash em 2026-11-22 (caso_01_iniciante, perfil iniciante, prompt v2). Ver samples/README.md.
+
+Olá, Maria! Pode ficar super tranquila, você não vai quebrar nada. Vamos resolver isso juntos, de forma bem simples e no seu tempo!
+
+Para que eu possa descobrir exatamente o que aconteceu com a sua internet e te ajudar a resolver logo, preciso que você me ajude respondendo a 3 perguntas bem rápidas:
 
 ### Perguntas Prioritárias de Esclarecimento
-1. **Qual é o código exato ou mensagem de erro exibida na tela?**
-   - *Por que precisamos disso*: Permite identificar o módulo exato que falhou sem suposições.
-   - *Como você pode verificar*: Observe a caixa de alerta que surge ao tentar a ação.
 
-2. **O problema acontece em outros dispositivos ou apenas neste?**
-   - *Por que precisamos disso*: Ajuda a diferenciar uma falha da sua conta de uma instabilidade local do aparelho.
-   - *Como você pode verificar*: Tente acessar o mesmo recurso pelo navegador do celular.
+1. **Qual é o desenho ou a palavra que está ao lado dessa luz vermelha que pisca?**
+   - *Por que precisamos disso*: Cada luzinha no aparelho representa uma função (como a chegada da internet da rua ou a energia da tomada). Sabendo qual luz mudou de cor, identificamos o ponto exato da falha.
+   - *Como você pode verificar*: Olhe para a frente do seu aparelho. Bem pertinho da luz vermelha, veja se há um ícone simples (como um **globo/planeta**, uma **anteninha**, uma **página** ou uma **palavra** em letras pequenas como PON, LOS ou INTERNET).
+
+2. **A internet sumiu em todos os aparelhos da casa (celulares, TV, computador) ou apenas em um?**
+   - *Por que precisamos disso*: Isso nos mostra se o sinal parou de chegar para a casa inteira ou se é apenas um aparelho específico que perdeu a conexão.
+   - *Como você pode verificar*: Tente abrir uma mensagem ou vídeo no celular usando o Wi-Fi e observe se a sua televisão ou outro celular da casa também estão sem acesso.
+
+3. **Olhando para a parte de trás do aparelho, há algum cabo visivelmente solto ou desconectado?**
+   - *Por que precisamos disso*: Muitas vezes, ao limpar a poeira ou mover o aparelho, um cabinho pode afrouxar ligeiramente, impedindo o sinal de passar.
+   - *Como você pode verificar*: Apenas olhe para a parte traseira do aparelho, sem apertar nada nem puxar com força. Veja se o cabo fininho que vem da parede ou os cabos coloridos estão devidamente encaixados nas entradas.

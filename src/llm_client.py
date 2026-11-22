@@ -52,7 +52,7 @@ def extract_token_usage(usage_metadata: Any) -> Dict[str, Any]:
     - prompt_tokens: tokens de entrada (prompt_token_count)
     - completion_tokens: tokens da resposta visível (candidates_token_count)
     - thoughts_tokens: tokens de raciocínio interno (thoughts_token_count), cobrados como saída
-      nos modelos 2.5 e não incluídos em candidates_token_count
+      nos modelos com raciocínio (ex.: 2.5 e 3.5) e não incluídos em candidates_token_count
     - total_tokens: total informado pela API (ou a soma, se ausente)
     """
     prompt_tokens = _as_int(getattr(usage_metadata, "prompt_token_count", None))

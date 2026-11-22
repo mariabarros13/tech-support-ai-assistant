@@ -1,17 +1,52 @@
-> AVISO: saída SINTÉTICA gerada em modo Mock (sem chamada ao Gemini). Ilustra o formato da v2; não é uma resposta real. Ver samples/README.md.
+> Saída real gerada pelo modelo gemini-3.5-flash em 2026-11-22 (caso_01_iniciante, perfil iniciante, prompt v2). Ver samples/README.md.
+
+Olá, Maria! Tudo bem? 
+
+Antes de começarmos, quero que você **fique completamente tranquila**: você não vai quebrar nada! O roteador é um aparelho resistente e os passos que vamos fazer juntos agora são extremamente simples e 100% seguros. 
+
+A luz vermelha piscando é apenas o jeito do aparelho dizer: *"Ops, perdi o sinal por um instante, preciso de uma ajudinha para me reconectar!"*. Vamos resolver isso juntos, passo a passo.
+
+---
 
 ### Pré-requisitos / Atenção Inicial
-- Certifique-se de salvar qualquer trabalho pendente antes de prosseguir.
-- Tenha em mãos seu usuário e senha de acesso.
+- **Localize o roteador**: Certifique-se de estar em um local onde consiga enxergar a parte da frente (onde ficam as luzes) e a parte de trás do aparelho de forma confortável.
+- **Tenha acesso à tomada**: Veja se você consegue alcançar a tomada de energia onde o aparelho está ligado.
+- **Não se preocupe com botões pequenos**: Não vamos usar nenhum objeto pontiagudo ou apertar botões escondidos de "Reset". Faremos apenas uma reinicialização simples e segura.
+
+---
 
 ### Plano de Ação Passo a Passo
-1. **Encerre a sessão ativa**: Clique no seu perfil no canto superior e selecione 'Sair da conta'.
-2. **Limpe os dados temporários**: Acesse as configurações de privacidade do aplicativo e limpe o cache.
-3. **Reinicie a conexão**: Desconecte e reconecte sua rede ou aguarde 15 segundos.
-4. **Faça um novo login**: Insira novamente suas credenciais e confirme o acesso.
+
+1. **Examine os cabos na parte de trás do aparelho**:
+   Olhe para a parte traseira do seu roteador e **verifique** se todos os cabos estão bem encaixados nas entradinhas coloridas. Se algum cabo parecer solto, **pressione-o suavemente** para dentro até ouvir um leve "clique".
+
+2. **Desconecte o cabo de energia da tomada**:
+   Siga o fio preto que sai do roteador até a tomada na parede. **Puxe o plugue da tomada** com cuidado. Você verá que todas as luzes do aparelho vão se apagar. Isso é perfeitamente normal! Essa ação limpa a memória temporária do roteador sem apagar suas configurações.
+
+3. **Aguarde o tempo de descanso do aparelho**:
+   **Conte mentalmente até 30** (ou marque 30 segundos no relógio) mantendo o aparelho fora da tomada. Esse tempinho é essencial para que o roteador desligue completamente e se prepare para reiniciar.
+
+4. **Reconecte o aparelho na tomada**:
+   **Coloque o plugue do cabo de energia de volta na tomada** da parede. 
+
+5. **Observe o painel de luzes na parte da frente**:
+   **Aguarde cerca de 2 a 3 minutos** sem mexer no aparelho. Você verá as luzes acendendo uma a uma, piscando e mudando de cor aos poucos. O roteador está trabalhando para buscar o sinal de internet novamente.
+
+---
 
 ### Como Confirmar que Deu Certo (Checagem de Sucesso)
-O painel principal deve carregar sem mensagens de erro e com o indicador de status verde ('Conectado').
+
+Você saberá que a internet voltou ao normal quando notar dois sinais simples:
+
+1. **No Roteador**: A luz que estava vermelha mudará para a cor verde (ou azul, dependendo do modelo) ou ficará acesa de forma fixa, sem piscar.
+2. **No seu Celular ou Computador**: **Abra o seu aplicativo de mensagens ou um site de notícias**. Se as mensagens chegarem ou a página carregar normalmente, parabéns! Seu problema foi totalmente resolvido com sucesso.
+
+---
 
 ### Próximo Passo se Não Funcionar
-Caso o erro persista, reporte o código de erro exibido na tela para nossa equipe de atendimento avançado.
+
+Se mesmo após aguardar os 3 minutos a luz continuar **vermelha e piscando**:
+
+- **Mantenha a calma**, você fez tudo certinho e o aparelho continua totalmente seguro.
+- Esse sinal persistente indica que o problema não é no seu aparelho, mas sim na rede que vem da rua (como uma manutenção na sua região ou um cabo externo desconectado).
+- **Entre em contato com nossa central de atendimento** e diga exatamente esta frase: *"Já fiz a reinicialização na tomada, mas a luz do sinal continua vermelha"*. O atendente saberá na hora que precisa verificar a chegada do sinal na sua rua e vai te guiar rapidamente!
