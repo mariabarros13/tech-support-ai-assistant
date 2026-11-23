@@ -93,7 +93,8 @@ Assistente inteligente de atendimento ao cliente desenvolvido em Python, focado 
 
 ### 1. Clonar e Acessar o Diretório
 ```bash
-cd vlab-desafio-IA
+git clone https://github.com/mhalu13/tech-support-ai-assistant.git
+cd tech-support-ai-assistant
 ```
 
 ### 2. Configurar o Ambiente Virtual Python (Recomendado)
@@ -113,7 +114,10 @@ python -m pip install -r requirements.txt
 ### 4. Configurar Variáveis de Ambiente
 Copie o arquivo `.env.example` para `.env`:
 ```bash
+# Windows:
 copy .env.example .env
+# Linux/Mac:
+cp .env.example .env
 ```
 Edite o arquivo `.env` para inserir sua chave da API Google Gemini (`GEMINI_API_KEY`).
 
