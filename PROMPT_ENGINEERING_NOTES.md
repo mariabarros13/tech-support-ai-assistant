@@ -102,6 +102,23 @@ Vencedor: v2 em 7 comparações, empate em 3, v1 em 1 (`tecnico` / diagnóstico)
 - **Clareza teve regressão por extensão**: as 4 quedas de clareza da v2 (iniciante/diagnóstico e os 3 casos do técnico) têm a mesma causa: a resposta ultrapassou 450 palavras (entre 459 e 687), enquanto a v1 ficou entre 277 e 421. Estrutura e tamanho das frases foram equivalentes. É essa queda que dá a única vitória da v1.
 - **Adequação ao nível do cliente praticamente não diferenciou as versões** (+0.09). Com o modelo real, a v1 já adapta bem o vocabulário: ela recebe o nome do perfil (que contém o rótulo, ex.: "Iniciante / Leiga") e o nível técnico. Nenhuma das versões usou jargão com a cliente leiga, ambas mostraram profundidade técnica ao perfil avançado e ambas validaram o sentimento da cliente frustrada. A única melhoria veio da brevidade da v2 para o cliente apressado no diagnóstico (120 palavras). Limitação: a heurística não verifica as restrições específicas do perfil (ex.: "no máximo 3 a 5 itens" para o apressado), então ganhos reais nesse ponto podem não estar refletidos na nota.
 
+### Avaliação Manual do Caso de Referência
+
+Caso: `caso_01_iniciante` (Maria, leiga, roteador com luz vermelha piscando), diagnóstico, v1 x v2 (`samples/sample_comparison.json`). As notas manuais ficam no bloco `evaluation`; `v1_scores` e `v2_scores` continuam sendo a referência da heurística automática.
+
+| Critério | v1 manual | v2 manual | Heurística v1 / v2 |
+| :--- | :---: | :---: | :---: |
+| Clareza | 4 | 4 | 5 / 4 |
+| Adequação ao nível do cliente | 4 | 5 | 5 / 5 |
+| Acionabilidade | 3 | 5 | 4 / 5 |
+| **Total** | **11** | **14** | **14 / 14** |
+
+- **Clareza (v1 4, v2 4):** a v1 é enxuta e bem dividida, mas cita "WAN" e "LOS" sem explicar e termina em um único passo. A v2 tem passos numerados com o resultado esperado em cada um, mas tem cerca de 635 palavras e a seção 3 repete causas e mistura diagnóstico com passo a passo.
+- **Adequação (v1 4, v2 5):** a v1 tranquiliza a cliente, mas usa siglas com uma pessoa leiga. A v2 usa "caixinha" e "globinho", explica a perda de sinal com a analogia da torneira e diz que a cliente só deve fazer o que se sentir confortável, o que responde ao medo de quebrar o aparelho.
+- **Acionabilidade (v1 3, v2 5):** a v1 pede uma checagem do cabo e fica aguardando resposta, sem ensinar o reinício nem dizer como confirmar o resultado. A v2 dá três passos com resultado esperado, gravidade, tempo estimado (3 a 5 minutos) e o que acontece se a luz continuar vermelha.
+
+**Conclusão:** a v2 vence (14 a 11), mesmo sendo mais longa, porque a cliente consegue resolver o problema na primeira resposta. A heurística empata nesse caso porque conta o ganho de acionabilidade da v2 e a perda de clareza por extensão, mas não percebe que a v1 deixa o atendimento incompleto nem o uso de siglas com uma cliente leiga. O próximo ajuste é limitar o tamanho da v2 e impedir que o diagnóstico repita o passo a passo.
+
 ### Custo e latência (chamadas não atendidas pelo cache)
 
 | Versão | Chamadas | Latência média | Latência máxima | Tokens de entrada | Tokens de saída | Tokens de raciocínio | Total |

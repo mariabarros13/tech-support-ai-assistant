@@ -44,5 +44,37 @@
   "v1_average": 4.67,
   "v2_average": 4.67,
   "winner": "empate",
-  "summary": "As versões empataram na média da rubrica oficial. Melhorias da v2: Acionabilidade (+1). Regressões da v2: Clareza (-1)."
+  "summary": "As versões empataram na média da rubrica oficial. Melhorias da v2: Acionabilidade (+1). Regressões da v2: Clareza (-1).",
+  "evaluation": {
+    "_nota": "Avaliação manual (rubrica oficial, escala 1-5) do caso caso_01_iniciante / diagnóstico. v1_scores e v2_scores acima são a referência da heurística automática.",
+    "v1": {
+      "clarity": {
+        "score": 4,
+        "justification": "Texto curto e bem separado em problema, causas e recomendação inicial. Perde um ponto porque a seção 3 termina em um passo só e deixa o resto para uma próxima mensagem, e porque menciona 'WAN' e 'LOS' sem explicar."
+      },
+      "customer_fit": {
+        "score": 4,
+        "justification": "Tranquiliza a Maria logo de início e propõe o passo mais seguro (olhar o cabo sem apertar botão). Mas cita 'Internet', 'WAN' e 'LOS' para uma cliente que se declarou leiga, e não usa nenhuma analogia que ajude a visualizar o problema."
+      },
+      "actionability": {
+        "score": 3,
+        "justification": "Entrega uma única ação (conferir o cabo atrás do roteador) e depois depende de a cliente responder. Não diz como saber se deu certo, não ensina o reinício do aparelho (só promete orientar depois) e não diz o que acontece se nada funcionar."
+      }
+    },
+    "v2": {
+      "clarity": {
+        "score": 4,
+        "justification": "Bem organizado, com resumo, causa provável, gravidade e passo a passo numerado, cada passo com 'Como saber se deu certo'. O tamanho (cerca de 635 palavras) e a seção 3, que repete causas e mistura diagnóstico com passo a passo, pesam contra, então a nota não passa de 4."
+      },
+      "customer_fit": {
+        "score": 5,
+        "justification": "Fala em 'caixinha', 'globinho' e 'aparelhinho', evita sigla e usa a analogia da torneira para explicar a perda de sinal. Reforça que ela só deve fazer o que se sentir confortável, o que responde diretamente ao medo de quebrar o aparelho."
+      },
+      "actionability": {
+        "score": 5,
+        "justification": "Dá três passos concretos (empurrar o cabo, tirar da tomada e contar até 30, esperar 2 minutos), cada um com o resultado esperado (cabo firme, luz verde ou azul fixa). Informa gravidade baixa, tempo de 3 a 5 minutos e o que fazer se a luz continuar vermelha. A cliente consegue resolver sem outra mensagem."
+      }
+    },
+    "conclusao": "A v2 vence por 14 a 11. Mesmo mais longa, ela entrega o que a cliente precisa para sair do problema na primeira resposta, enquanto a v1 só inicia o atendimento. O custo da v2 é a extensão e a mistura de diagnóstico com passo a passo, que o próximo ajuste do prompt deve limitar."
+  }
 }
