@@ -2,6 +2,8 @@
 
 Assistente inteligente de atendimento ao cliente desenvolvido em Python, focado em Engenharia de Prompt avançada, suporte a perfis de clientes estruturados em JSON, cache determinístico, persistência de execuções e avaliação comparativa de prompts baseada em rubrica oficial.
 
+> 🚀 **Demonstração online:** [https://tech-support-ai-assistant.streamlit.app/](https://tech-support-ai-assistant.streamlit.app/)
+
 ---
 
 ## 🎯 Funcionalidades Principais
@@ -175,6 +177,8 @@ python main.py history --type comparisons --limit 10
 
 ## 🌐 Interface Web Demonstrativa (Streamlit)
 
+🔗 **Aplicação publicada (Streamlit Community Cloud):** [https://tech-support-ai-assistant.streamlit.app/](https://tech-support-ai-assistant.streamlit.app/)
+
 Para abrir a interface web visual:
 ```bash
 streamlit run web/app.py
@@ -188,6 +192,11 @@ A interface será aberta em `http://localhost:8501`. A caixa **Modo Mock** vem m
 - Abas com os 4 conteúdos formatados e **renderização gráfica de diagramas Mermaid**.
 - Painel de comparação lado a lado de v1 vs v2 com pontuações da rubrica oficial e veredito analítico.
 - Tabelas de auditoria de execuções persistidas e cache.
+
+### Nota de acesso para a banca avaliadora
+
+- **API real x Modo Mock**: a barra lateral permite alternar entre a API real (`gemini-3.5-flash`) e o **Modo Mock**. Se a cota gratuita diária de requisições da API estiver esgotada no momento do teste, **recomenda-se o Modo Mock**: ele responde offline com textos sintéticos e permite percorrer todo o fluxo da interface (a qualidade dos prompts deve ser avaliada pelos exemplos reais em `samples/`).
+- **Armazenamento efêmero**: na nuvem, o diretório `storage/` (execuções, comparações e cache) é temporário e dura apenas enquanto a sessão do container estiver ativa. Reinicializações da aplicação apagam esse histórico.
 
 ---
 
